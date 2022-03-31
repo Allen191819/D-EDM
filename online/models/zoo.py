@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import os.path as osp
 import os
-import knockoff.models.cifar
-import knockoff.models.mnist
-import knockoff.models.imagenet
+import online.models.cifar
+import online.models.mnist
+import online.models.imagenet
 
 
 def get_net(modelname, modeltype, pretrained=None, **kwargs):

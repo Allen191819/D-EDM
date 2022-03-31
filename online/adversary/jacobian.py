@@ -17,20 +17,17 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset, Subset
 import sys
 
-sys.path.append("/home/ubuntu/Project/Meta_GAN_gr")
-from knockoff import datasets
-import knockoff.utils.model as model_utils
-import knockoff.utils.utils as knockoff_utils
-import knockoff.config as cfg
-import knockoff.models.zoo as zoo
 
-from defenses.adversary.transfer import parse_defense_kwargs, BBOX_CHOICES
-from defenses.victim import *
+from online import datasets
+import online.utils.model as model_utils
+import online.utils.utils as knockoff_utils
+import online.config as cfg
+import online.models.zoo as zoo
 
-__author__ = "Tribhuvanesh Orekondy"
-__maintainer__ = "Tribhuvanesh Orekondy"
-__email__ = "orekondy@mpi-inf.mpg.de"
-__status__ = "Development"
+from online.adversary.transfer import parse_defense_kwargs, BBOX_CHOICES
+from online.victim import *
+
+
 
 
 def make_one_hot(labels, K):

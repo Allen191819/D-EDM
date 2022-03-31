@@ -44,7 +44,7 @@ class EDM_device(Blackbox):
 
     def load_models(self) -> List:
         T_list = []
-        path_exp = os.path.join('/home/ubuntu/Project/Meta_GAN_gr/defenses/exp', f'{self.dataset_tar}/alpha')
+        path_exp = os.path.join('', f'{self.dataset_tar}/alpha')
         for i in range(5):
             T_path = os.path.join(path_exp, 'T' + str(i) + '.pt')
             print("**",self.dataset_tar)

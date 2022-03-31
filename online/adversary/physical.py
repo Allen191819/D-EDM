@@ -19,23 +19,18 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import torchvision
 
-sys.path.append("/home/ubuntu/Project/Meta_GAN_gr")
-from knockoff import datasets
-import knockoff.utils.transforms as transform_utils
-import knockoff.utils.model as model_utils
-import knockoff.utils.utils as knockoff_utils
-from knockoff.victim.blackbox import Blackbox
-import knockoff.config as cfg
-from knockoff.adversary.adaptive import AdaptiveAdversary
-from knockoff.adversary.jacobian import JacobianAdversary
 
-__author__ = "Tribhuvanesh Orekondy"
-__maintainer__ = "Tribhuvanesh Orekondy"
-__email__ = "orekondy@mpi-inf.mpg.de"
-__status__ = "Development"
+from online import datasets
+import online.utils.transforms as transform_utils
+import online.utils.model as model_utils
+import online.utils.utils as knockoff_utils
+from online.victim.blackbox import Blackbox
+import online.config as cfg
+from online.adversary.adaptive import AdaptiveAdversary
+from online.adversary.jacobian import JacobianAdversary
 
 
-ROOT = "/home/ubuntu/Project/Meta_GAN_gr"
+ROOT = ""
 
 def pil_loader(path):
     # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
@@ -119,7 +114,7 @@ class Dataset():
 
 def assemble_transferset_gtsrb(vectors, transform, budget):
     # queryset
-    test_dir = "/home/ubuntu/Project/Meta_GAN_gr/GTSRB"
+    test_dir = ""
     tbp_paths = os.listdir(test_dir)
     get_key = lambda i: int(i.split('.')[0])
     tbp_paths = sorted(tbp_paths, key=get_key)
@@ -151,7 +146,7 @@ transform = datasets.modelfamily_to_transforms[modelfamily]['test']
 out_path = os.path.join(ROOT, queryset_name)
 if not os.path.exists(out_path): os.mkdir(out_path)
 transfer_out_path = osp.join(out_path, 'transferset.pickle')
-api_output_path = '/home/ubuntu/Project/Meta_GAN_gr/complete_test.npy'
+api_output_path = ''
 api_output_vectors = np.load(api_output_path)
 # in the form of [[], ..., []]
 transferset = assemble_transferset_gtsrb(api_output_vectors, transform, budget=len(api_output_vectors))

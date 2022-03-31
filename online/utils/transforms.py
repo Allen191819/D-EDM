@@ -1,7 +1,4 @@
-#!/usr/bin/python
-"""This is a short description.
-Replace this with a more detailed description of what this file contains.
-"""
+
 from torchvision.transforms import transforms
 
 import online.config as cfg

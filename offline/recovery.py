@@ -29,8 +29,7 @@ def train(epoch_itrs, batch_size, nz, shadow, generator, restorer, device, optim
                 s_logit = shadow[j](data, defense=defense)
                 r_logit = restorer(s_logit.detach())
                 loss_S = F.l1_loss(r_logit, t_logit.detach())
-                # loss_S = F.mse_loss(r_logit, t_logit.detach())
-                # loss_S = F.kl_div(r_logit, t_logit.detach()) # 没见过效果这么差的loss function，千万别用，不知道为什么效果这么差
+
 
                 loss_S.backward()
                 optimizer_R.step()

@@ -1,10 +1,8 @@
 
 import torch.nn as nn
-from online.ml_models.lenet import LeNet5
-from online.ml_models.conv3 import Conv3
-from functools import partial
-from torchvision.models import vgg16_bn, resnet18, resnet34, mobilenet_v2
-
+from offline.ml_models import LeNet5
+from offline.ml_models import Conv3
+from torchvision.models import vgg16_bn, resnet34
 
 nclasses_dict = {
     "mnist": 10,
